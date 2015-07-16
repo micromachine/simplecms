@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/html/projects/ark/application/views/admin/vwFooter.php</file>
+            <file>file:/var/www/html/projects/ark/application/views/admin/vwManageDatabase.php</file>
+            <file>file:/var/www/html/projects/ark/application/views/admin/vwManageTown.php</file>
+            <file>file:/var/www/html/projects/ark/application/views/admin/vwHeader.php</file>
+            <file>file:/var/www/html/projects/ark/application/models/town_model.php</file>
+            <file>file:/var/www/html/projects/ark/application/views/admin/vwEditCMS.php</file>
+            <file>file:/var/www/html/projects/ark/application/controllers/admin/town.php</file>
+        </group>
+    </open-files>
+</project-private>
