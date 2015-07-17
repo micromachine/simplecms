@@ -45,6 +45,12 @@ class Town extends CI_Controller {
         
     }
     public function update_town() {
+        $town=$this->input->post('miasto');
+        $voivodeship=$this->input->post('wojewodztwo');
+        $id_town=$this->input->post('id_town');
+        $this->load->model('town_model');
+        return $this->town_model->update_town($town,$voivodeship,$id_town);       
+
         
     }
 

@@ -34,13 +34,14 @@ $this->load->view('admin/vwHeader');
 
 ?>
 
-<legend>Edycja miasta : <?php  $array =  explode(':',$this->uri->segment(4)); echo $array[0];?></legend>
+<legend>Edycja miasta : <?php  $array =  explode(':',$this->uri->segment(4)); echo $array[1];?></legend>
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Nazwa miasta</label>  
   <div class="col-md-4">
-  <input id="textinput" name="miasto" type="text" placeholder="<?php  $array =  explode(':',$this->uri->segment(4)); echo $array[0];?>" class="form-control input-md" required="">
-    
+  <input id="textinput" name="miasto" type="text" placeholder="<?php  $array =  explode(':',$this->uri->segment(4)); echo $array[1];?>" class="form-control input-md" required="">
+  <input type="hidden" name="id_town" value="<?php  $array =  explode(':',$this->uri->segment(4)); echo $array[0];?>">
+  
   </div>
 </div>
 <!-- Select Basic -->

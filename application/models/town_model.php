@@ -50,6 +50,17 @@ class Town_model extends CI_Model
     public function get_single_town($param) {
         
     }
+    
+    
+    public function update_town($town,$voivodeship,$id_town){
+        $data = array(
+               'miasto' => $town,
+               'id_woj' => $voivodeship
+                );
+        $this->db->where('id', $id_town);
+        return $this->db->update('tbl_miasta', $data); 
+        
+    }
 
     public function voivodeship() {
             $this->db->select('*');

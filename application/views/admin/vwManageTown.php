@@ -58,7 +58,7 @@ $this->load->view('admin/vwFooter');
                 }
                 $.each(data, function (key,value) {
                     if (data.length >= 0)
-                    localization = value['miasto']+':'+value['wojewodztwo'];    
+                    localization = value['id']+':'+value['miasto']+':'+value['wojewodztwo'];    
                     $('#DropdownCountry').append('<li role="presentation"><a role="menuitem">' + localization  +'</li>');
                        
                 });
