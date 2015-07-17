@@ -25,6 +25,7 @@ class Voivodeship_model extends CI_Model
         public function update($id,$vname){
             $data = array(
                'id' => $id,
+                
                'wojewodztwo' => $vname
             );
             $this->db->where('id', $id);

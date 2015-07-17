@@ -43,6 +43,8 @@ class Town extends CI_Controller {
         $dane['woj'] = $data;
         $this->load->view('admin/vwEditTown',array('voivodeship' => $dane));
         
+    }
+    public function update_town() {
         
     }
 

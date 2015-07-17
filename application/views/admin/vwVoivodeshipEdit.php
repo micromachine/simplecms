@@ -36,7 +36,7 @@ $this->load->view('admin/vwHeader');
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-  <a href="#" onClick="update_voivodeship('<?=$voivodeship[0]['id'],$voivodeship[0]['wojewodztwo']; ?>')"" class="btn btn-primary btn-xs">Optymalizacja całej bazy</a>
+  <a href="#" onClick="update_voivodeship('<?=$voivodeship[0]['id'],$voivodeship[0]['wojewodztwo']; ?>')"" class="btn btn-primary btn-xs">Zapisz</a>
 
   </div>
 </div>
@@ -90,9 +90,9 @@ $this->load->view('admin/vwFooter');
         success: function(msg) {
                  $('#successMessage').html("<b> Edycja przebiegła poprawnie </b>");
                  $('#success').show();
-                 setTimeout(function() {
-                 location.href = "<?=site_url('admin/voivodeship')?>";
-                 }, 800);
+                 //setTimeout(function() {
+                 //location.href = "<?=site_url('admin/voivodeship')?>";
+                 //}, 800);
                
         },
         error: function() {
