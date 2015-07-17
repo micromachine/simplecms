@@ -6,7 +6,7 @@ $this->load->view('admin/vwHeader');
           <div class="col-lg-12">
             <h1>Słownik <small> miast polskich</small></h1>
             <ol class="breadcrumb">
-              <li><a href="<?php echo base_url(); ?>town"><i class="icon-dashboard"></i> Słownik miast polskich</a></li>
+              <li><a href="<?php echo base_url(); ?>admin/town"><i class="icon-dashboard"></i> Słownik miast polskich</a></li>
 
             </ol>
 
@@ -25,7 +25,7 @@ $this->load->view('admin/vwHeader');
           </div>
         </div><!-- /.row -->
        
-        <form class="form-horizontal">
+        <form class="form-horizontal" id="zapisz">
 <fieldset>
 <!-- Form Name -->
 <?php
@@ -39,7 +39,7 @@ $this->load->view('admin/vwHeader');
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Nazwa miasta</label>  
   <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="<?php  $array =  explode(':',$this->uri->segment(4)); echo $array[0];?>" class="form-control input-md" required="">
+  <input id="textinput" name="miasto" type="text" placeholder="<?php  $array =  explode(':',$this->uri->segment(4)); echo $array[0];?>" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -47,7 +47,7 @@ $this->load->view('admin/vwHeader');
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Województwo : </label>
   <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control">
+    <select id="wojewodztwo" name="wojewodztwo" class="form-control">
     <?php foreach($voivodeship as $tab => $value): ?>
         <?php foreach($value as $taba => $x): ?>
         <option value="<?=$x['id']?>"><?php echo $x['wojewodztwo'];?></option>
@@ -62,7 +62,7 @@ $this->load->view('admin/vwHeader');
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button id="zapisz" name="singlebutton" class="btn btn-primary">Zapisz</button>
+  <input type="submit" value="Zapisz">
   </div>
 </div>
 
@@ -75,3 +75,23 @@ $this->load->view('admin/vwHeader');
 <?php
 $this->load->view('admin/vwFooter');
 ?>
+      <script>
+          
+     $("#zapisz").submit(function() {
+
+    var url = "<?php echo base_url(); ?>admin/town/update_town"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#zapisz").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+});
+
+    </script>
