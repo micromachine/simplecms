@@ -19,10 +19,18 @@ class Voivodeship_model extends CI_Model
             $voivodeship = $this->db->order_by('id')
             ->get_where('tbl_wojewodztwa', array('id' => $id))
             ->result_array();
-
         return $voivodeship;
         }
         
+        public function update($id,$vname){
+            $data = array(
+               'id' => $id,
+               'wojewodztwo' => $vname
+            );
+            $this->db->where('id', $id);
+            $voivodeship = $this->db->update('tbl_wojewodztwa', $data); 
+            return $voivodeship;
+        }
 
 
 }
