@@ -9,8 +9,6 @@ $this->load->view('admin/vwHeader');
             <ol class="breadcrumb">
         <form>
             <input type="text" id="country" autocomplete="off" name="country" class="form-control" placeholder="np: Leszno"> 
-            <input type="text" id="id_town" autocomplete="off" name="id_town" class="form-control" > 
-            
             <a href="#"  onClick="edit_town()" class="btn btn-primary btn-xs"><i class="icon-white icon-minus"></i> Edytuj</a>   
             <ul class="dropdown txtcountry" role="menu" style="right: 0; left: auto;" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>
         </form>    
@@ -60,7 +58,8 @@ $this->load->view('admin/vwFooter');
                 }
                 $.each(data, function (key,value) {
                     if (data.length >= 0)
-                    $('#DropdownCountry').append('<li role="presentation"><a role="menuitem">' + value['miasto'],value['wojewodztwo'] +'</li>');
+                    localization = value['miasto']+':'+value['wojewodztwo'];    
+                    $('#DropdownCountry').append('<li role="presentation"><a role="menuitem">' + localization  +'</li>');
                        
                 });
             }
@@ -100,22 +99,22 @@ $this->load->view('admin/vwFooter');
        
      function edit_town(){
      var faction = "<?=site_url('admin/town/edit')?>";
-     var fdata = $('#voivodeship').serialize()
+     var name = $("input").val();
      $.ajax({ 
         url: faction,
         type: "POST",
         dataType: "text",
-        data: fdata,
+        data: {name: name},
         
         complete: function() {
                 $("#loading").hide();
         },
         success: function(msg) {
-                 $('#successMessage').html("<b> Edycja przebiegła poprawnie </b>");
-                 $('#success').show();
-                 //setTimeout(function() {
-                 //location.href = "<?=site_url('admin/voivodeship')?>";
-                 //}, 800);
+                 //$('#successMessage').html("<b> Edycja przebiegła poprawnie </b>");
+                 //$('#success').show();
+                 setTimeout(function() {
+                 location.href = "<?=site_url('admin/town/show_town/')?>/"+name;
+                 }, 800);
                
         },
         error: function() {

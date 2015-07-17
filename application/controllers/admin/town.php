@@ -28,11 +28,25 @@ class Town extends CI_Controller {
     }
     
     public function edit(){
-         $this->load->view('admin/vwEditTown');
+        $params = explode(':', $_POST['name']);
+        $this->load->model('town_model');
+        $data=$this->town_model->get_town($params);       
+        $this->load->view('admin/vwEditTown');
         
         
     }
 
+    public function show_town(){
+        $array =  explode(':',$this->uri->segment(4));
+        $this->load->model('town_model');
+        $data=$this->town_model->voivodeship();       
+        $dane['woj'] = $data;
+        $this->load->view('admin/vwEditTown',array('voivodeship' => $dane));
+        
+        
+    }
+
+    
     private function json_response($successful, $message)
     {
         echo json_encode(array(

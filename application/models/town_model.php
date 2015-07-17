@@ -32,6 +32,32 @@ class Town_model extends CI_Model
         
     }
 
-    
+    public function get_town($param) {
+     //   $where = "name=$param[0] AND status='boss' OR status='active'";
+     //   $this->db->where($where);
+     //select * from tbl_miasta Join tbl_wojewodztwa  ON tbl_miasta.id_woj = tbl_wojewodztwa.id where miasto ='Leszno' AND wojewodztwo='wielkopolskie';
+     //SELECT * FROM (`tbl_miasta`) JOIN `tbl_wojewodztwa` ON `tbl_miasta`.`id_woj` = `tbl_wojewodztwa`.`id` WHERE `miasto='Leszno'` AND wojewodztwo='wielkopolskie'
+        $this->db->select('*');
+        $this->db->from('tbl_miasta');
+        $this->db->join('tbl_wojewodztwa', 'tbl_miasta.id_woj = tbl_wojewodztwa.id');
+        //$where = 'miasto=$param[0] AND wojewodztwo=$param[1];';
+        $this->db->where('miasto', $param[0]);
+        $this->db->where('wojewodztwo', $param[1]); 
+        return $this->db->get()->result_array();
+        
+    }
 
+    public function get_single_town($param) {
+        
+    }
+
+    public function voivodeship() {
+            $this->db->select('*');
+            $this->db->from('tbl_wojewodztwa');
+            return $this->db->get()->result_array();
+       
+            
+    }
+    
+    
 }
