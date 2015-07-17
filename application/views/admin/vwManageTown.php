@@ -8,7 +8,9 @@ $this->load->view('admin/vwHeader');
             <h1>Słownik <small> miast polskich</small></h1>
             <ol class="breadcrumb">
         <form>
-            <input type="text" id="country" autocomplete="off" name="country" class="form-control" placeholder="np: Leszno">        
+            <input type="text" id="country" autocomplete="off" name="country" class="form-control" placeholder="np: Leszno"> 
+            <input type="text" id="id_town" autocomplete="off" name="id_town" class="form-control" > 
+            
             <a href="#"  onClick="edit_town()" class="btn btn-primary btn-xs"><i class="icon-white icon-minus"></i> Edytuj</a>   
             <ul class="dropdown txtcountry" role="menu" style="right: 0; left: auto;" aria-labelledby="dropdownMenu" id="DropdownCountry"></ul>
         </form>    
@@ -51,13 +53,15 @@ $this->load->view('admin/vwFooter');
                     $('#DropdownCountry').empty();
                     $('#country').attr("data-toggle", "dropdown");
                     $('#DropdownCountry').dropdown('toggle');
+
                 }
                 else if (data.length == 0) {
                     $('#country').attr("data-toggle", "");
                 }
                 $.each(data, function (key,value) {
                     if (data.length >= 0)
-                        $('#DropdownCountry').append('<li role="presentation" ><a role="menuitem">' + value['miasto'] + '</li>');
+                    $('#DropdownCountry').append('<li role="presentation"><a role="menuitem">' + value['miasto'],value['wojewodztwo'] +'</li>');
+                       
                 });
             }
         });
@@ -65,8 +69,11 @@ $this->load->view('admin/vwFooter');
             $('ul.txtcountry').on('click', 'li a', function () {
             $('#country').val($(this).text());
             
+
+
     });
 });
+    /*
     function edit_town(){
             var name = $("input").val();
             var checkstr =  confirm('Na pewno edytować  miasto : '+ name);
@@ -89,6 +96,39 @@ $this->load->view('admin/vwFooter');
                 return false;
             }
         }
+    */
+       
+     function edit_town(){
+     var faction = "<?=site_url('admin/town/edit')?>";
+     var fdata = $('#voivodeship').serialize()
+     $.ajax({ 
+        url: faction,
+        type: "POST",
+        dataType: "text",
+        data: fdata,
+        
+        complete: function() {
+                $("#loading").hide();
+        },
+        success: function(msg) {
+                 $('#successMessage').html("<b> Edycja przebiegła poprawnie </b>");
+                 $('#success').show();
+                 //setTimeout(function() {
+                 //location.href = "<?=site_url('admin/voivodeship')?>";
+                 //}, 800);
+               
+        },
+        error: function() {
+                $('#errorMessage').html("<b> Edycja nie przebiegła poprawnie</b>");
+                $('#error').show();
+
+        }
+    });
+         
+     }
+     
+    
+    
     
       </script>
       
