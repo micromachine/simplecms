@@ -50,6 +50,7 @@
             <li <?php echo  $pg =='dash' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 <li <?php echo  $pg =='cms' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/cms"><i class="fa fa-file"></i> Strony statyczne</a></li>              
             <li <?php echo  $pg =='art' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/art"><i class="fa fa-file"></i> Artykuły</a></li>
+            <li <?php echo  $pg =='artcategory' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/artcategory"><i class="fa fa-file"></i> Artykuły - kategorie</a></li>
             <li <?php echo  $pg =='ads' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/ads"><i class="fa fa-file"></i> Reklamy</a></li>
             <li <?php echo  $pg =='voivodeship' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/voivodeship"><i class="fa fa-file"></i> Województwa</a></li>
             <li <?php echo  $pg =='town' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/town"><i class="fa fa-file"></i> Miasta</a></li>
