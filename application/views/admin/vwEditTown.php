@@ -96,3 +96,6 @@ $this->load->view('admin/vwFooter');
 });
 
     </script>
+    
+    
+    
