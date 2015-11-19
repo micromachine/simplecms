@@ -6,6 +6,8 @@ class Voivodeship_model extends CI_Model
    function __construct()
         {
                 parent::__construct();
+                $this->output->enable_profiler(TRUE);
+
         }
 
    public function show_all()
@@ -25,7 +27,6 @@ class Voivodeship_model extends CI_Model
         public function update($id,$vname){
             $data = array(
                'id' => $id,
-                
                'wojewodztwo' => $vname
             );
             $this->db->where('id', $id);
@@ -33,5 +34,9 @@ class Voivodeship_model extends CI_Model
             return $voivodeship;
         }
 
-
+        public function delete_voivodeship($id){
+             $this->db->where('id', $id);
+             $this->db->delete('tbl_wojewodztwa'); 
+        }
+              
 }

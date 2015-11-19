@@ -32,11 +32,11 @@ $this->load->view('admin/vwHeader');
     <div class="fld">
         <form method="post" action="<?php echo base_url(); ?>admin/cms/update_cms">
         <table>
-            <tr><td>Page</td><td>&nbsp;</td><td><?php  
+            <tr><td>Nazwa</td><td>&nbsp;</td><td><?php  
                     echo isset($cms[0]['label']) && !empty($cms[0]['label']) ? $cms[0]['label'] : '';     
                     ?></td></tr>
               <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-              <tr><td>Content</td><td>&nbsp;</td><td>  <input type="hidden" value="<?php echo isset($cms[0]['id']) && !empty($cms[0]['id']) ? $cms[0]['id'] : '';?>" name="pst_id"> 
+              <tr><td>Zawartość</td><td>&nbsp;</td><td>  <input type="hidden" value="<?php echo isset($cms[0]['id']) && !empty($cms[0]['id']) ? $cms[0]['id'] : '';?>" name="pst_id"> 
                       <textarea name="tst_content"><?php  
                     echo isset($cms[0]['content']) && !empty($cms[0]['content']) ? $cms[0]['content'] : '';     
                     ?></textarea>

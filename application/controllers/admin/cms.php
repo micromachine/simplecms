@@ -12,6 +12,7 @@ class Cms extends CI_Controller {
             redirect('admin/home');
         }
     }
+///var/www/ark/uploads/images/20151118/
 
     public function index() {
         $arr['page'] = 'cms';
@@ -24,10 +25,6 @@ class Cms extends CI_Controller {
  	 mkdir($config['upload_path'], 0777, TRUE);
 	}
 	}
-
-
-
-
 
      public function edit_cms($id='') {
         $arr['page'] = 'cms';

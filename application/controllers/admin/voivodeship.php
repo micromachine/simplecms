@@ -20,7 +20,8 @@ class Voivodeship extends CI_Controller {
         $this->load->view('admin/vwVoivodeshipManage', array('voivodeship' => $voivodeship));
     }      
     
-    public function delete_province(){ 
+    public function delete_province(){
+        $this->voivodeship_model->delete_voivodeship($id = $_POST['id']);
         
         
     } //delete_province

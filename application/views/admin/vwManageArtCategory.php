@@ -4,7 +4,7 @@ $this->load->view('admin/vwHeader');
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Artykuły <small> - kategorie szarządzanie</small></h1>
+            <h1>Artykuły <small> - kategorie zarządzanie</small></h1>
             <ol class="breadcrumb">
               
               

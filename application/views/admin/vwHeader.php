@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
             <li <?php echo  $pg =='dash' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-<li <?php echo  $pg =='cms' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/cms"><i class="fa fa-file"></i> Strony statyczne</a></li>              
+            <li <?php echo  $pg =='cms' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/cms"><i class="fa fa-file"></i> Strony statyczne</a></li>              
             <li <?php echo  $pg =='art' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/art"><i class="fa fa-file"></i> Artykuły</a></li>
             <li <?php echo  $pg =='artcategory' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/artcategory"><i class="fa fa-file"></i> Artykuły - kategorie</a></li>
             <li <?php echo  $pg =='ads' ? 'class="active"' : '' ?>><a href="<?php echo base_url(); ?>admin/ads"><i class="fa fa-file"></i> Reklamy</a></li>
@@ -66,7 +66,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username') ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Ustawienia</a></li>
+                <li><a href="<?php echo base_url(); ?>admin/users"><i class="fa fa-gear"></i> Ustawienia</a></li>
                 <li class="divider"></li>
                 <li><a href="<?php echo base_url(); ?>admin/home/logout"><i class="fa fa-power-off"></i> Wyloguj</a></li>
               </ul>

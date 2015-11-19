@@ -26,7 +26,7 @@ $this->load->view('admin/vwHeader');
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Nazwa : </label>  
   <div class="col-md-5">
-  <input id="vname" name="vname" type="text" placeholder="np. <?php echo $voivodeship[0]['wojewodztwo']; ?>" class="form-control input-md" required="">
+  <input id="vname" name="vname" type="text" placeholder="np. <?php echo $voivodeship[0]['wojewodztwo']; ?>" class="form-control input-md" required="yes">
   <input type="hidden" name="id" value="<?php echo $voivodeship[0]['id']; ?>">
   
   </div>
@@ -91,7 +91,7 @@ $this->load->view('admin/vwFooter');
                  $('#successMessage').html("<b> Edycja przebiegła poprawnie </b>");
                  $('#success').show();
                  //setTimeout(function() {
-                 //location.href = "<?=site_url('admin/voivodeship')?>";
+                 location.href = "<?=site_url('admin/voivodeship')?>";
                  //}, 800);
                
         },

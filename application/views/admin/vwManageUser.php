@@ -5,32 +5,31 @@ $this->load->view('admin/vwHeader');
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Artykuły <small> zarządzanie</small></h1>
+            <h1>Użytkownicy <small> zarządzanie</small></h1>
             <ol class="breadcrumb">
-              <li><a href="Users"><i class="icon-dashboard"></i> Users</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Users</li>
-              
-              
-              <button class="btn btn-primary" type="button" style="float:right;">Add New User</button>
-              <div style="clear: both;"></div>
+          
+             <a href="<?php echo base_url(); ?>admin/cms/show_cms/" class="btn btn-success btn-xs"  type="button" style="float:right;">Nowy użytkownik</a>
+                <div style="clear: both;"></div>
             </ol>
           </div>
         </div><!-- /.row -->
-
-        
+  
             
             <div class="table-responsive">
               <table class="table table-hover tablesorter">
                 <thead>
                   <tr>
-                    <th class="header">UserName <i class="fa fa-sort"></i></th>
-                    <th class="header">Email <i class="fa fa-sort"></i></th>
-                    <th class="header">Last Login <i class="fa fa-sort"></i></th>
-                    <th class="header">Signup Date<i class="fa fa-sort"></i></th>
+                    <th class="header">Nazwa użytkownika <i class="fa fa-sort"></i></th>
+                    <th class="header">Adres email <i class="fa fa-sort"></i></th>
+                    <th class="header">Ostatnio aktywny <i class="fa fa-sort"></i></th>
+                    <th class="header">Data utworzenia<i class="fa fa-sort"></i></th>
+                    <th class="header">Aktywny<i class="fa fa-sort"></i></th>
+                    <th class="header">Usuń<i class="fa fa-sort"></i></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+     
+                    <tr>
                     <td>Sumit</td>
                     <td>sumit@example.com</td>
                     <td>Jan 1,2014</td>
