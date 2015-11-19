@@ -16,13 +16,13 @@ class Ads_model extends CI_Model
         	if (!$results) 
 		{
 	                $town = $this->db->get('tbl_miasta');
-        		$this->memcached_library->add(',miasta', $town->result());
+        		$this->memcached_library->add('miasta', $town->result());
 	                return $results = $this->memcached_library->get('miasta');
-			var_dump($results);
+			
                 }
 		else 
 		{
-			var_dump($results);
+		//	var_dump($results);
 			//$this->memcached_library->delete('miasta');
 		}
         

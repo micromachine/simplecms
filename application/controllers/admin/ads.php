@@ -16,13 +16,37 @@ class Ads extends CI_Controller {
     }
 
     public function index() {
+        $this->output->cache(1);
+        //$this->memcached_library->delete('miasta');
         $this->load->model('ads_model');
-        $town = $this->ads_model->show_all();
-        $this->load->view('admin/vwManageADS',array('miasta' => $town));
+        $results = $this->memcached_library->get('miasta');
+        	if (!$results) 
+		{
+                    $this->db->select('tbl_miasta.id, miasto,wojewodztwo');
+                    $this->db->from('tbl_miasta');
+                    $this->db->join('tbl_wojewodztwa', 'tbl_miasta.id_woj = tbl_wojewodztwa.id');
+                    $this->db->order_by('tbl_miasta.id', 'DESC');
+                    $town = $this->db->get();
+                    $this->memcached_library->add('miasta', $town->result());
+	            return $results = $this->memcached_library->get('miasta');
+                }
+		else 
+		{
+		//	var_dump($results);
+			//$this->memcached_library->delete('miasta');
+		}
+        
+//        $town = $this->ads_model->show_all();
+//       var_dump($town);
+        $this->load->view('admin/vwManageADS',array('miasta' => $results));
+        
+        
 
+        
 	}
 
 
+        
 
 
 }

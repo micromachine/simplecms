@@ -15,16 +15,19 @@ $this->load->view('admin/vwHeader');
                 <div style="clear: both;"></div>
             </ol>
           </div>
+
         </div><!-- /.row -->
-            <?php  var_dump($miasta)?>
-        
+         <?php //echo "asddddddddddddddddddddddddddddd";?>
+            <?php //var_dump($miasta)?>
+        <?php //echo "asddddddddddddddddddddddddddddd";?>
         <select id="source" 
         data-text="Wszystkie miasta" 
-        data-search="Search for options">
+        data-search="Wyszukaj">
     
-      <?php foreach($miasta as $tab): ?>
-        <option value="<?=$tab['id']?>"><?php echo $tab['miasto'];?></option>
-       
+      <?php foreach($miasta as $tab => $value): ?>
+
+              <option value="<?=$value->id.":".$value->miasto?>"><?php echo $value->miasto." woj. ".$value->wojewodztwo;?></option>
+              
        <?php endforeach; ?>
         
         
@@ -32,8 +35,8 @@ $this->load->view('admin/vwHeader');
         </select>
 
 <select id="destination" 
-        data-text="Destination list"  
-        data-search="Search for options">
+        data-text="Lista docelowa"  
+        data-search="Wyszukaj">
 </select>
 
         
@@ -47,8 +50,11 @@ $this->load->view('admin/vwFooter');
       <script>
 $('#source, #destination').listswap({
 	truncate:true, 
-	height:135, 
+	height:450, 
 	is_scroll:true, 
+        label_add:'Dodaj', 
+	label_remove:'Usuń', 
+
 });
 
 $('#source_2, #destination_2').listswap({
